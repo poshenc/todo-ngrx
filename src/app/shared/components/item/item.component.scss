@@ -1,0 +1,18 @@
+.container {
+  background-color: #FFFFFF;
+  width: 500px;
+  height: 60px;
+  padding: 20px 35px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

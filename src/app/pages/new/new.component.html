@@ -1,0 +1,13 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()" class="form-container">
+  <div class="input-container">
+    <label for="title">TITLE</label>
+    <input id="title" type="text" formControlName="title">
+  </div>
+  <div class="text-box-container">
+    <label for="description">DESCRIPTION</label>
+    <textarea id="description" type="text" formControlName="description"></textarea>
+  </div>
+  <div class="actions">
+    <app-button text="Add" type="submit" [disabled]="!todoForm.valid"></app-button>
+  </div>
+</form>

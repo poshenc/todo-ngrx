@@ -1,0 +1,17 @@
+button {
+  background-color: #000000;
+  border: none;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.isCompleted {
+  background-color: #16c247;
+}

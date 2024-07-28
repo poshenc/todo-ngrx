@@ -1,0 +1,28 @@
+.actions {
+  display: flex;
+  justify-content: space-between;
+  width: 570px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  height: calc(100vh - 160px);
+  overflow: auto;
+}
+
+.items {
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.items::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}

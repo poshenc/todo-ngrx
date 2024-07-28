@@ -1,0 +1,17 @@
+<div class="container">
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div class="input-container">
+      <label for="title">TITLE</label>
+      <input id="title" type="text" formControlName="title">
+    </div>
+    <div class="text-box-container">
+      <label for="description">DESCRIPTION</label>
+      <textarea id="description" type="text" formControlName="description"></textarea>
+    </div>
+    <div class="actions">
+      <app-button text="Update" type="submit" [disabled]="!todoForm.valid"></app-button>
+      <app-button text="Delete" type="button" (click)="onDelete()" backgroundColor="#d93d3d"></app-button>
+    </div>
+  </form>
+  <app-toggle class="toggle" [isCompleted]="false" (click)="onToggle()"></app-toggle>
+</div>

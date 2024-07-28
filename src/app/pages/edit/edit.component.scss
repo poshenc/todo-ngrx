@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  width: 200px;
+  margin: auto;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.toggle {
+  position: absolute;
+  top: 32px;
+  left: -50px;
+}

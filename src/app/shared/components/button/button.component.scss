@@ -1,0 +1,14 @@
+button {
+  background-color: #2d77b0;
+  border: none;
+  width: 80px;
+  padding: 10px 14px;
+  color: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.disabled {
+  color: grey;
+  background-color: rgb(89, 90, 89);
+}
