@@ -13,5 +13,6 @@
       <app-button text="Delete" type="button" (click)="onDelete()" backgroundColor="#d93d3d"></app-button>
     </div>
   </form>
-  <app-toggle class="toggle" [isCompleted]="false" (click)="onToggle()"></app-toggle>
+  <app-toggle class="toggle" [isCompleted]="isCompleted" (click)="onToggle()"></app-toggle>
+  <div class="arrow" (click)="onBack()">&#8592;</div>
 </div>

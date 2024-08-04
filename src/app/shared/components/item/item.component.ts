@@ -1,7 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { ToggleComponent } from '../toggle/toggle.component';
 import { RouterLink } from '@angular/router';
+import { Todo } from '../../../core/models/todo.model';
+import { Store } from '@ngrx/store';
+import { TodoActions } from '../../../core/ngrx/todo/todo.actions';
 
 @Component({
   selector: 'app-item',
@@ -11,10 +14,12 @@ import { RouterLink } from '@angular/router';
   styleUrl: './item.component.scss'
 })
 export class ItemComponent {
-  @Input({ required: true }) title: string = '';
-  @Input({ required: true }) description: string = '';
+  @Input({ required: true }) todo: Todo = {} as Todo;
+
+  store = inject(Store);
 
 
-
-
+  onToggle() {
+    this.store.dispatch(TodoActions.toggleTodo({ id: this.todo.id }));
+  }
 }

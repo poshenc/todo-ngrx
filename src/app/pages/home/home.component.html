@@ -1,4 +1,5 @@
 <div class="actions">
+  <app-button text="Sort"></app-button>
   <app-button text="Filter"></app-button>
   <app-button text="Search"></app-button>
   <a routerLink="/new">
@@ -7,22 +8,7 @@
 </div>
 
 <div class="items">
-  <app-item title="abc"
-    description="The Recent Feedback section shows assignments with feedback from your instructor or a peer during the last four weeks"></app-item>
-  <app-item title="abc"
-    description="The Recent Feedback section shows assignments with feedback from your instructor or a peer during the last four weeks"></app-item>
-  <app-item title="abc"
-    description="The Recent Feedback section shows assignments with feedback from your instructor or a peer during the last four weeks"></app-item>
-  <app-item title="abc"
-    description="The Recent Feedback section shows assignments with feedback from your instructor or a peer during the last four weeks"></app-item>
-  <app-item title="abc"
-    description="The Recent Feedback section shows assignments with feedback from your instructor or a peer during the last four weeks"></app-item>
-</div>
-<!-- <div class="result-container">
-  @for (dataItem of getArrayFromObject(data); track $index) {
-  <div class="result-content-container">
-    <p>{{ dataItem[0] + ': ' }}</p>
-    <p>{{ dataItem[1] }}</p>
-  </div>
+  @for (todo of (todo$ | async); track todo.id) {
+  <app-item [todo]="todo"></app-item>
   }
-</div> -->
+</div>

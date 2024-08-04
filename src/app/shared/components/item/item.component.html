@@ -1,10 +1,12 @@
 <div class="container">
-  <app-toggle [isCompleted]="true"></app-toggle>
-  <div>
-    <h2>{{ title }}</h2>
-    <p class="description">{{ description }}</p>
+  <div class="left">
+    <app-toggle [isCompleted]="todo.isCompleted" (click)="onToggle()"></app-toggle>
+    <div>
+      <h2>{{ todo.title }}</h2>
+      <p class="description">{{ todo.description }}</p>
+    </div>
   </div>
-  <a routerLink="/edit">
+  <a routerLink="/edit" [queryParams]="{id: todo.id}">
     <app-button text="VIEW"></app-button>
   </a>
 </div>
