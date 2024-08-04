@@ -47,4 +47,8 @@ export class HomeComponent {
     this.selectedFilter = filter;
     this.store.dispatch(TodoActions.setFilter({ filter }));
   }
+
+  handleToggle(id: string) {
+    this.store.dispatch(TodoActions.toggleTodo({ id }));
+  }
 }

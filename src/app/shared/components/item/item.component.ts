@@ -1,10 +1,8 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { ToggleComponent } from '../toggle/toggle.component';
 import { RouterLink } from '@angular/router';
 import { Todo } from '../../../core/models/todo.model';
-import { Store } from '@ngrx/store';
-import { TodoActions } from '../../../core/ngrx/todo/todo.actions';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,11 +14,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ItemComponent {
   @Input({ required: true }) todo: Todo = {} as Todo;
+  @Output() onToggle = new EventEmitter<string>();
 
-  store = inject(Store);
-
-
-  onToggle() {
-    this.store.dispatch(TodoActions.toggleTodo({ id: this.todo.id }));
+  onToggleState() {
+    this.onToggle.emit(this.todo.id);
   }
 }

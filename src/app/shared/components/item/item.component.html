@@ -1,6 +1,6 @@
 <div class="container">
   <div class="left">
-    <app-toggle [isCompleted]="todo.isCompleted" (click)="onToggle()"></app-toggle>
+    <app-toggle [isCompleted]="todo.isCompleted" (click)="onToggleState()"></app-toggle>
     <div>
       <h2>{{ todo.title }}</h2>
       <p class="time">{{ todo.createdAt | date: "YYYY-MM-dd hh:mm:ss" }}</p>

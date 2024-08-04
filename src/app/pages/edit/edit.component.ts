@@ -6,7 +6,7 @@ import { ToggleComponent } from '../../shared/components/toggle/toggle.component
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { createTodoSelector } from '../../core/ngrx/todo/todo.selectors';
-import { debounceTime, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Todo } from '../../core/models/todo.model';
 import { TodoActions } from '../../core/ngrx/todo/todo.actions';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';

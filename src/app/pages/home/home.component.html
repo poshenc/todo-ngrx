@@ -12,6 +12,6 @@
 
 <div class="items">
   @for (todo of (todo$ | async); track todo.id) {
-  <app-item [todo]="todo"></app-item>
+  <app-item [todo]="todo" (onToggle)="handleToggle($event)"></app-item>
   }
 </div>
