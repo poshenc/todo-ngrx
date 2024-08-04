@@ -5,11 +5,12 @@ import { RouterLink } from '@angular/router';
 import { Todo } from '../../../core/models/todo.model';
 import { Store } from '@ngrx/store';
 import { TodoActions } from '../../../core/ngrx/todo/todo.actions';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-item',
   standalone: true,
-  imports: [ButtonComponent, ToggleComponent, RouterLink],
+  imports: [ButtonComponent, ToggleComponent, RouterLink, CommonModule],
   templateUrl: './item.component.html',
   styleUrl: './item.component.scss'
 })
