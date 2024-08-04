@@ -1,7 +1,10 @@
 <div class="actions">
-  <app-button text="Sort"></app-button>
-  <app-button text="Filter"></app-button>
-  <app-button text="Search"></app-button>
+  <app-input-box placeHolder="Search..." [value]="searchTerm"
+    (valueChange)="handleSearchChange($event)"></app-input-box>
+  <app-drop-down title="Sort" [options]=sortOptions (onSelect)="handleSortSelect($event)"
+    icon="../../../assets/sort.svg"></app-drop-down>
+  <app-drop-down title="Filter" [options]=filterOptions (onSelect)="handleFilterSelect($event)"
+    icon="../../../assets/filter.svg"></app-drop-down>
   <a routerLink="/new">
     <app-button text="New"></app-button>
   </a>
