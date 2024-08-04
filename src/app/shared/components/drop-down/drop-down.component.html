@@ -1,6 +1,6 @@
 <div class="dropdown">
   <img class="icon" src={{icon}} height="15px" width="15px" />
-  <button (click)="toggleDropdown()" class="dropdown-button">{{ selectedOption || title }}</button>
+  <button (click)="toggleDropdown()" class="dropdown-button">{{ value || title }}</button>
   @if (isOpen) {
   <ul class="dropdown-menu" [ngClass]="{'show': isOpen}">
     @for (option of options; track option) {

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostListener, input, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-drop-down',
@@ -13,10 +13,10 @@ export class DropDownComponent {
   @Input() options: string[] = [];
   @Input() icon: string = '';
   @Input() title: string = '';
+  @Input() value: string = '';
   @Output() onSelect = new EventEmitter<string>();
 
   isOpen = false;
-  selectedOption: string | null = null;
 
   constructor(private eRef: ElementRef) { }
 
@@ -25,7 +25,6 @@ export class DropDownComponent {
   }
 
   selectOption(option: string) {
-    this.selectedOption = option;
     this.isOpen = false;
     this.onSelect.emit(option);
   }

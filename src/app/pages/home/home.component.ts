@@ -3,10 +3,11 @@ import { ItemComponent } from '../../shared/components/item/item.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { selectAllTodos } from '../../core/ngrx/todo/todo.selectors';
+import { selectFilter, selectOrganizedTodos, selectSearchTerm, selectSort } from '../../core/ngrx/todo/todo.selectors';
 import { CommonModule } from '@angular/common';
 import { DropDownComponent } from '../../shared/components/drop-down/drop-down.component';
 import { InputBoxComponent } from '../../shared/components/input-box/input-box.component';
+import { TodoActions } from '../../core/ngrx/todo/todo.actions';
 
 @Component({
   selector: 'app-home',
@@ -17,22 +18,33 @@ import { InputBoxComponent } from '../../shared/components/input-box/input-box.c
 })
 export class HomeComponent {
   store = inject(Store);
-  todo$ = this.store.select(selectAllTodos);
+  todo$ = this.store.select(selectOrganizedTodos);
 
   sortOptions = ['Ascending', 'Descending'];
   filterOptions = ['All', 'Completed', 'Todo'];
+
   searchTerm: string = '';
+  selectedSort: string = '';
+  selectedFilter: string = '';
 
-  handleSearchChange(newValue: string) {
-    this.searchTerm = newValue;
-    console.log(this.searchTerm);
+  constructor() {
+    this.store.select(selectSearchTerm).subscribe(val => this.searchTerm = val);
+    this.store.select(selectSort).subscribe(val => this.selectedSort = val);
+    this.store.select(selectFilter).subscribe(val => this.selectedFilter = val);
   }
 
-  handleSortSelect(selectedSort: string) {
-    console.log('Selected option:', selectedSort);
+  handleSearchChange(searchTerm: string) {
+    this.searchTerm = searchTerm;
+    this.store.dispatch(TodoActions.setSearchTerm({ searchTerm }));
   }
 
-  handleFilterSelect(selectedFilter: string) {
-    console.log('Selected option:', selectedFilter);
+  handleSortSelect(sort: string) {
+    this.selectedSort = sort;
+    this.store.dispatch(TodoActions.setSort({ sort }));
+  }
+
+  handleFilterSelect(filter: string) {
+    this.selectedFilter = filter;
+    this.store.dispatch(TodoActions.setFilter({ filter }));
   }
 }

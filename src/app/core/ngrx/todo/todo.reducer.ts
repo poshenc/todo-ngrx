@@ -49,4 +49,16 @@ export const todoReducer = createReducer(
       todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
     )
   })),
+  on(TodoActions.setSearchTerm, (state, { searchTerm }) => ({
+    ...state,
+    searchTerm
+  })),
+  on(TodoActions.setSort, (state, { sort }) => ({
+    ...state,
+    sort
+  })),
+  on(TodoActions.setFilter, (state, { filter }) => ({
+    ...state,
+    filter
+  })),
 );
